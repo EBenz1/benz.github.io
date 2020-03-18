@@ -1,0 +1,766 @@
+@import url('https://fonts.googleapis.com/css?family=Kanit|Sen&display=swap');
+
+
+*{
+    margin : 0;
+    padding : 0;
+    box-sizing : border-box;
+}
+body,button{
+    font-family: 'Sen','Kanit',sans-serif;
+}
+input[type="text"]{
+    font-family: 'Sen','Kanit',sans-serif;
+}
+
+.container{
+    max-width: 1440px;
+    margin: 0 auto;
+    text-align: center;
+}
+/************************************** RESPONSIVE NAVBAR ***********************/
+#menuToggle
+{
+  display: none;
+  position: relative;
+  top: 25px;
+  left: 50px;
+  
+  z-index: 1;
+  
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menuToggle a:not(.bg1)
+{
+  text-decoration: none;
+  color: #232323;
+  border-right : 1px solid transparent;
+  transition: color 0.3s ease;
+}
+
+#menuToggle a:not(.bg1):hover
+{
+  color: rgb(1, 90, 255);
+}
+#menuToggle li{
+    border-right : 3px solid transparent;
+    padding-right: 5px ;
+}
+#menuToggle li:not(.bg1):hover{
+    border-right : 3px solid rgb(1, 90, 255);
+    padding-right: 5px ;
+}
+
+
+
+#menuToggle input
+{
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  
+  cursor: pointer;
+  
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+  
+  -webkit-touch-callout: none;
+}
+
+/*
+ * Just a quick hamburger
+ */
+#menuToggle span
+{
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  
+  background: #cdcdcd;
+  border-radius: 3px;
+  
+  z-index: 1;
+  
+  transform-origin: 4px 0px;
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+#menuToggle span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+/* 
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+#menuToggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+
+/*
+ * But let's hide the middle one.
+ */
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+ * Ohyeah and the last one should go the other direction
+ */
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+#menu
+{
+  position: absolute;
+  width: 300px;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
+  
+  background: #fcfcfc;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+  
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu li
+{
+  padding: 10px 0;
+  font-size: 22px;
+  transition: 0.5s;
+}
+
+/*
+ * And let's slide it in from the left
+ */
+#menuToggle input:checked ~ ul
+{
+  transform: none;
+}
+/*************************************** HEADER ********************************/
+header{
+    background: #8e9eab;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right,#8e9eab,#eef2f3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.main-menu{
+    display: grid;
+    grid-template-columns: repeat(2 , 1fr);
+}
+.logo {
+    padding: 50px 50px;
+    text-align: left;
+}
+nav li {
+    list-style: none;
+    display: inline-block;
+    padding: 50px 30px;
+    transition: 0.5s;
+    /* border-bottom: 2px solid transparent; */
+}
+nav a {
+    text-decoration: none;
+    color : rgb(0, 0, 0);
+    transition: 0.5s ease-in-out;
+}
+nav li:hover:not(.bg) a{
+    color: rgb(1, 90, 255);
+    border-bottom: 1px solid rgb(1, 90, 255) ;
+    padding-bottom: 10px;
+}
+.bg a{
+    border: 1px solid rgb(1, 90, 255);
+    border-radius: 30px;
+    padding: 15px;
+    color : rgb(1, 90, 255);
+    transition: 0.5s ease-in-out;
+    font-weight: bold;
+}
+.bg a:hover{
+    color: rgb(248, 248, 248);
+    background-color: rgb(4, 92, 255);
+}
+
+/********************************************** BANNER ***********************************************/
+.main-banner {
+    text-align: center;
+    padding: 100px 0;
+}
+.main-banner p{
+    font-size: 20px;
+}
+.main-banner h1{
+    font-size: 50px;
+}
+.work{
+    text-transform: uppercase;
+    text-align: center;
+    padding: 50px 0;
+}
+button.work{
+    position: absolute;
+    top: 65%;
+    left : 45%;
+    transform: translate(-50%, - 50%);
+    padding: 16px 32px;
+    background-color: rgb(1, 90, 255);
+    color: #fff;
+    border: none;
+    overflow: hidden;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.7s ease-in-out;
+    border-radius : 30px;
+}
+button.work::before{
+    position: absolute;
+    content: "";
+    top : 0;
+    left: -110%;
+    bottom: 0;
+    width: 50%;
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: skewX(-30deg);
+    transition: left 0.7s ease-in-out;
+}
+button.work:hover::before{
+    left: 120%;
+}
+button.work:hover{
+    background-color: transparent;
+    color: rgb(1, 90, 255);
+    border : 1px solid rgb(1, 90, 255)
+}
+/******************************************* SERVICE ************************************************/
+section.service{
+    padding: 50px;
+}
+h1.service-text{
+    font-size: 65px;
+}
+h1.service-text-1{
+    font-size: 90px;
+    position: relative;
+    top: -95px;
+    left : 0;
+    bottom: 0;
+    color: rgba(209, 209, 209, 0.274);
+    z-index: -1;
+}
+/****************** SIZE FONT AWESOME ****************************/
+.fa-fill-drip{
+    font-size: 100px;
+    padding: 20px 0;
+}
+.fa-gem{
+    font-size: 100px;
+    padding: 20px 0;
+}
+.fa-broom{
+    font-size: 100px;
+    padding: 20px 0;
+}
+/******************  END SIZE FONT AWESOME ****************************/
+
+.main-service{
+    display: grid;
+    padding: 50px 50px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap : 10px;
+    justify-items: center;
+}
+
+.service-item {
+    padding: 75px 75px;
+    height: auto;
+    width: 400px;
+    border-radius: 5px;
+    transition: 0.5s ease-in-out;
+}
+.service-item span.under{
+    border-bottom: rgb(1, 90, 255) 5px solid;
+    padding: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.5s ease-in-out;
+}
+.service-item:hover{
+    background-color: rgb(1, 90, 255);
+    color: #fff;
+}
+.service-item:hover span.under{
+    border-bottom: rgb(255, 255, 255) 5px solid;
+    color: #000;
+}
+
+/*********************************** PORTFOLIO *****************************************/
+section.portfolio{
+    background-color:#f8f8f8 ;
+    padding: 75px 0;
+}
+section.portfolio h1{
+    font-size: 50px;
+}
+.main-portfolio{
+    padding: 30px 100px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+.main-portfolio img{
+    width: 100%;
+    height: auto;
+}
+.port-item-sp{
+    background-color: rgb(1, 90, 255);
+    color: #fff;
+    text-align: center;
+    background-image: linear-gradient(135deg , #2E86C1 95% , #f8f8f8 calc(5% + 100px));
+}
+.port-item-sp p,h3{
+    margin: 0;
+    position: relative;
+    top: 40%;
+    left: 0;
+}
+.port-item-sp h3::after{
+    content: '';
+    height: 3px;
+    width: 50px;
+    background-color: #fff;
+    position: absolute;
+    bottom: -15px;
+    left: calc(50% - 25px);
+}
+
+/************************************* HIRE **************************/
+section.hire{
+    padding: 100px 0;
+}
+.main-hire{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    text-align: center;
+}
+.hire-1{
+    text-align: left;
+    padding: 0 0 0 100px;
+}
+.hire-2{
+    padding: 50px 0;
+}
+.hire-2 a{
+    text-decoration: none;
+    color: rgb(1, 90, 255);
+    border: 1px solid rgb(1, 90, 255);
+    padding: 16px 32px;
+    border-radius: 30px;
+    transition: 0.7s ease-in-out;
+    font-weight: bold;
+}
+.hire-2 a:hover{
+    color: #fff;
+    background-color: rgb(1,90,255);
+}
+
+/********************************************* CLIENT ****************/
+section.client{
+    background-color: #f8f8f8;
+    padding: 50px 0;
+    text-align: center;
+}
+section.client img{
+    padding: 20px 0;
+    border-radius: 50%;
+    width: 75px;
+}
+section h1.heading{
+    font-size: 50px;
+}
+.main-client{
+   padding: 0 50px;
+}
+.client-1{
+    padding: 0 75px;
+}
+
+/***************************************************** BOTTOM ***********************************/
+section.bottom{
+    padding: 50px 0;
+}
+.main-bottom{
+    display: grid;
+    grid-template-columns: 849px 1fr;
+    text-align: center;
+}
+.menu ul{
+    padding: 0 0 0 250px;
+}
+.menu ul li{
+    display: inline-block;
+    padding: 30px;
+}
+.menu input{
+    display: inline-block;
+}
+.menu ul li a{
+    text-decoration: none;
+    color : rgb(0, 0, 0);
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+}
+.menu a:hover{
+    color: rgb(1, 90, 255);
+}
+
+
+.search{
+    padding: 25px 0 0 0;
+    text-align: left;
+}
+.search input{
+    padding: 5px;
+    border-radius: 30px;
+    border: 1px solid black;
+    outline: none;
+} 
+.search a{
+    color: rgb(0, 0, 0);
+}
+#filtersubmit {
+    position: relative;
+    z-index: 1;
+    left: -27px;
+    top : 1px;
+}
+.social ul li{
+    display: inline-block;
+    text-align: center;
+    margin: 0 auto;
+    padding: 30px;
+}
+.social{
+    padding: 0px 0;
+}
+.social a{
+    padding: 20px;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    border-radius: 50%;
+    background-color: rgb(236, 236, 236);
+    color: rgb(190, 190, 190);
+    transition: 0.3s ease-in-out;
+}
+.icon{
+    transition: 0.3s ease-in-out;
+}
+.fb:hover{
+    background-color: rgb(1, 90, 255);
+    color: #fff;
+}
+.ig:hover,.ig:active{
+    background: #e1306c;
+    color : #fff;
+}
+.tw:hover{
+    background-color: rgb(108, 159, 255);
+    color: #fff;
+}
+.yt:hover{
+    background-color: red;
+    color: #fff;
+}
+
+/************************************************* FOOTER ****************************/
+footer{
+    border-top: 1px solid #d3d3d3;
+    padding: 50px 0 50px 0;
+}
+@media only screen and (max-width : 780px){
+    /************************** MENU *******************/
+    header{
+        background: #8e9eab;  /* fallback for old browsers */
+    }
+    #nav{
+        display: none;
+    }
+    #menuToggle
+    {
+        display: block;
+    }
+    .main-menu{
+        display: grid;
+        grid-template-columns: repeat(1 , 1fr);
+    }
+    .logo {
+        padding: 25px 25px;
+        text-align: left;
+        display: none;
+    }
+    nav li {
+        list-style: none;
+        display: grid;
+        justify-items: center;
+        padding: 20px 30px;
+        transition: 0.5s;
+    }
+    nav a {
+        text-decoration: none;
+        color : rgb(0, 0, 0);
+        transition: 0.5s ease-in-out;
+    }
+    nav li:hover:not(.bg) a{
+        color: rgb(1, 90, 255);
+        border-bottom: 0;
+        padding-bottom: 0px;
+    }
+    .bg a{
+        border: 1px solid rgb(1, 90, 255);
+        border-radius: 30px;
+        padding: 15px;
+        color : rgb(1, 90, 255);
+        transition: 0.5s ease-in-out;
+        font-weight: bold;
+    }
+    .bg a:hover{
+        color: rgb(248, 248, 248);
+        background-color: rgb(4, 92, 255);
+    }
+    /**************************** BANNER ****************/
+    .work{
+        display: none;    
+    }
+    /**************************** SERVICE ***************/
+    .main-service{
+        padding: 0 0 ;
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .service-item {
+        padding: 25px 25px;
+        height: 100%;
+        width: auto;
+        border-radius: 5px;
+        transition: 0.5s ease-in-out;
+    }
+    /**************************** PORTFOLIO **************/
+    .main-portfolio{
+        padding: 30px 100px;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .port-item-sp{
+        display: none;
+    }
+    /***************************** HIRE ****************/
+    .main-hire{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .hire-1{
+        padding: 20px 0;
+        text-align: center;
+    }
+    /**************************** CLIENT **************/
+    section.client{
+        background-color: #f8f8f8;
+        padding: 25px 0;
+        text-align: center;
+    }
+    .main-client{
+        padding: 0 0px;
+     }
+     section h1.heading{
+        font-size: 25px;
+    }
+    .client-1{
+        padding: 0 25px;
+    }
+    /************************** BOTTOM *************/
+    .main-bottom{
+        display: grid;
+        grid-template-columns: 1FR;
+        text-align: center;
+    }
+    .menu ul{
+        padding: 0 0 0 0;
+    }
+    .menu ul li{
+        display: inline-block;
+        padding: 20px;
+    }
+    .search{
+        padding: 25px 0 0 0;
+        text-align: center;
+    }
+    .search input{
+        padding: 5px;
+        border-radius: 30px;
+        border: 1px solid rgb(150, 146, 146);
+        outline: none;
+    } 
+    .social{
+        position: relative;
+        top : 20px
+    }
+    .social ul li{
+        display: inline-block;
+        text-align: center;
+        padding: 10px;
+    }
+    .social a{
+        padding: 15px;
+        text-decoration: none;
+        color: rgb(0, 0, 0);
+        border-radius: 50%;
+        background-color: rgb(236, 236, 236);
+        color: rgb(190, 190, 190);
+        transition: 0.3s ease-in-out;
+    }
+}
+
+
+
+@media only screen and (max-width : 480px){
+    /************************** MENU *******************/
+    header{
+        background: #8e9eab;  /* fallback for old browsers */
+    }
+    #nav{
+        display: none;
+    }
+    #menuToggle{
+        display: block;
+    }
+    .logo h1{
+        font-size: 20px;
+        display: none;
+    }
+    .bg1{
+        background-color: rgba(1, 90, 255, 0.459);
+        border-radius: 30px;
+        color : #fff;
+    }
+
+    /**************************** BANNER ****************/
+    .work{
+        display: none;    
+    }
+    /**************************** SERVICE ***************/
+    .main-service{
+        padding: 0 0 ;
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .service-item {
+        padding: 25px 25px;
+        height: 100%;
+        width: auto;
+        border-radius: 5px;
+        transition: 0.5s ease-in-out;
+    }
+    /**************************** PORTFOLIO **************/
+    .main-portfolio{
+        padding: 30px 100px;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .port-item-sp{
+        display: none;
+    }
+    /***************************** HIRE ****************/
+    .main-hire{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .hire-1{
+        padding: 20px 0;
+        text-align: center;
+    }
+    /**************************** CLIENT **************/
+    section.client{
+        background-color: #f8f8f8;
+        padding: 25px 0;
+        text-align: center;
+    }
+    .main-client{
+        padding: 0 0px;
+     }
+     section h1.heading{
+        font-size: 25px;
+    }
+    .client-1{
+        padding: 0 25px;
+    }
+    /************************** BOTTOM *************/
+    .main-bottom{
+        display: grid;
+        grid-template-columns: 1FR;
+        text-align: center;
+    }
+    .menu ul{
+        padding: 0 0 0 0;
+    }
+    .menu ul li{
+        display: inline-block;
+        padding: 20px;
+    }
+    .search{
+        padding: 25px 0 0 0;
+        text-align: center;
+    }
+    .search input{
+        padding: 5px;
+        border-radius: 30px;
+        border: 1px solid rgb(150, 146, 146);
+        outline: none;
+    } 
+    .social{
+        position: relative;
+        top : 20px
+    }
+    .social ul li{
+        display: inline-block;
+        text-align: center;
+        padding: 10px;
+    }
+    .social a{
+        padding: 15px;
+        text-decoration: none;
+        color: rgb(0, 0, 0);
+        border-radius: 50%;
+        background-color: rgb(236, 236, 236);
+        color: rgb(190, 190, 190);
+        transition: 0.3s ease-in-out;
+    }
+}
