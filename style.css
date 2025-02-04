@@ -172,7 +172,7 @@ input[type="text"]{
 }
 /*************************************** HEADER ********************************/
 header{
-    background: #8e9eab;  /* fallback for old browsers */
+    background: #9e9e9e;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right,#8e9eab,#eef2f3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
@@ -253,7 +253,7 @@ button.work::before{
     left: -110%;
     bottom: 0;
     width: 50%;
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(243, 233, 233, 0.3);
     transform: skewX(-30deg);
     transition: left 0.7s ease-in-out;
 }
@@ -513,7 +513,7 @@ footer{
 @media only screen and (max-width : 780px){
     /************************** MENU *******************/
     header{
-        background: #8e9eab;  /* fallback for old browsers */
+        background: #3789cc;  /* fallback for old browsers */
     }
     #nav{
         display: none;
